@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Berikan Suara Anda - Pemilihan OSIS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bilik Suara Elektronik</h1>
+        <p>Pilih salah satu pasangan calon. Pilihan Anda hanya dapat dilakukan satu kali.</p>
+        <form id="voteForm" action="{{ url_for('vote') }}" method="POST">
+            <input type="hidden" id="username" name="username" value="{{ username }}">
+            <div class="voting-grid">
+                <div class="card-vote"><img src="{{ url_for('static', filename='paslon1.jpg') }}" alt="Foto Kandidat 1"><h2>No. 1</h2><p>Zimran</p><button type="submit" name="kandidat" value="kandidat1">Pilih No. 1</button></div>
+                <div class="card-vote"><img src="{{ url_for('static', filename='paslon1.jpg') }}" alt="Foto Kandidat 1"><h2>No. 2</h2><p>Raden</p><button type="submit" name="kandidat" value="kandidat2">Pilih No. 2</button></div>
+                <div class="card-vote"><img src="{{ url_for('static', filename='paslon1.jpg') }}" alt="Foto Kandidat 1"><h2>No. 3</h2><p>Aldis</p><button type="submit" name="kandidat" value="kandidat3">Pilih No. 3</button></div>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            if (!confirm('Apakah Anda yakin dengan pilihan ini?')) { e.preventDefault(); }
+        });
+    </script>
+</body>
+</html>

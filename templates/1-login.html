@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Pemilihan OSIS (Python)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Portal Pemilihan Ketua OSIS SMAN 68 JAKARTA</h1>
+        <p>Silakan masuk untuk menggunakan hak pilih Anda.</p>
+        <form action="{{ url_for('login') }}" method="POST" class="card">
+            <h2>Login Pemilih</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Masuk</button>
+        </form>
+    </div>
+</body>
+</html>

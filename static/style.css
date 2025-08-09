@@ -1,0 +1,16 @@
+/* static/style.css */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.container { text-align: center; width: 90%; max-width: 1000px; }
+h1 { color: #1877f2; margin-bottom: 10px; }
+p { color: #606770; margin-bottom: 30px; }
+.card { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); max-width: 400px; margin: auto; text-align: left; }
+.card-kandidat, .card-vote { background-color: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin: 20px 0; text-align: center; }
+.card-kandidat img { border-radius: 50%; width: 100px; height: 100px; object-fit: cover; margin-bottom: 1rem; }
+label { display: block; margin-bottom: 5px; font-weight: 600; }
+input[type="text"], input[type="password"] { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #dddfe2; border-radius: 6px; box-sizing: border-box; }
+button, .button-logout { width: 100%; padding: 12px; background-color: #1877f2; border: none; border-radius: 6px; color: white; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; box-sizing: border-box; }
+button:hover, .button-logout:hover { background-color: #166fe5; }
+.button-logout { margin-top: 20px; background-color: #e44d26; max-width: 200px; }
+.button-logout:hover { background-color: #d1411e; }
+.voting-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.card-vote h2 { font-size: 2rem; color: #1877f2; }

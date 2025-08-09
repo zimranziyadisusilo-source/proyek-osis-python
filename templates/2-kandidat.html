@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Kandidat - Pemilihan OSIS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calon Ketua & Wakil Ketua OSIS</h1>
+        <p>Pelajari visi dan misi setiap pasangan calon sebelum memilih.</p>
+        <div class="card-kandidat"><img src="https://via.placeholder.com/150" alt="Foto Kandidat 1"><h2>No. 1 - Zimran</h2><p><strong>Visi:</strong> Inovatif dan kreatif.</p><p><strong>Misi:</strong> Meningkatkan program ekstrakurikuler.</p></div>
+        <div class="card-kandidat"><img src="https://via.placeholder.com/150" alt="Foto Kandidat 2"><h2>No. 2 - Raden</h2><p><strong>Visi:</strong> Berprestasi dan peduli lingkungan.</p><p><strong>Misi:</strong> Mengaktifkan kembali majalah dinding.</p></div>
+        <div class="card-kandidat"><img src="https://via.placeholder.com/150" alt="Foto Kandidat 3"><h2>No. 3 - Aldis</h2><p><strong>Visi:</strong> Solid, cerdas, dan berkarakter.</p><p><strong>Misi:</strong> Membuat platform digital untuk pengaduan siswa.</p></div>
+        <button onclick="goToVoting()">Lanjut ke Halaman Pemilihan</button>
+    </div>
+    <script>
+        function goToVoting() {
+            const user = new URLSearchParams(window.location.search).get('user');
+            window.location.href = "{{ url_for('voting') }}?user=" + user;
+        }
+    </script>
+</body>
+</html>

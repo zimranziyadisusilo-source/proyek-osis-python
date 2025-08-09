@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Count - Pemilihan OSIS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Perolehan Suara (Live Count)</h1>
+        <p>Terima kasih telah berpartisipasi! Berikut adalah hasil perolehan suara saat ini.</p>
+        <div class="card" style="width: 80%; max-width: 800px;"><canvas id="hasilChart"></canvas></div>
+        <a href="{{ url_for('index') }}" class="button-logout">Logout</a>
+    </div>
+    <script>
+        async function fetchResults() {
+            const response = await fetch("{{ url_for('api_results') }}");
+            const data = await response.json();
+            const ctx = document.getElementById('hasilChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.values(data).map(k => k.nama),
+                    datasets: [{
+                        label: 'Jumlah Suara',
+                        data: Object.values(data).map(k => k.suara),
+                        backgroundColor: ['rgba(255, 99, 132, 0.5)','rgba(54, 162, 235, 0.5)','rgba(255, 206, 86, 0.5)'],
+                        borderColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)'],
+                        borderWidth: 1
+                    }]
+                },
+                options: { scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+            });
+        }
+        fetchResults();
+    </script>
+</body>
+</html>
