@@ -19,9 +19,24 @@
         </form>
     </div>
     <script>
-        document.getElementById('voteForm').addEventListener('submit', function(e) {
-            if (!confirm('Apakah Anda yakin dengan pilihan ini?')) { e.preventDefault(); }
+       <script>
+    const voteForm = document.getElementById('voteForm');
+    const voteButtons = voteForm.querySelectorAll('button');
+
+    voteForm.addEventListener('submit', function(e) {
+        // Tampilkan dialog konfirmasi
+        if (!confirm('Apakah Anda yakin dengan pilihan ini? Anda tidak dapat mengubahnya lagi.')) {
+            e.preventDefault(); // Batalkan pengiriman jika user menekan "Cancel"
+            return; // Hentikan eksekusi script
+        }
+
+        // Nonaktifkan semua tombol setelah konfirmasi
+        voteButtons.forEach(button => {
+            button.disabled = true;
+            button.innerText = 'Memproses...'; // Beri tahu user bahwa suara sedang diproses
         });
+    });
+</script>
     </script>
 </body>
 </html>
